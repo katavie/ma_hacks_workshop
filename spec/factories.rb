@@ -1,11 +1,13 @@
 FactoryBot.define do
-  sequence :name do |n|
-    "Test Artist#{n}"
+  factory :artist do
+    sequence(:name) { |n| "Test Artist#{n}" }
+    description 'Some description about artist'
   end
 
-  factory :artist do
-    name
-    description 'Some description about artist'
+  factory :album do
+    sequence(:name) { |n| "Test Album#{n}" }
+    duration_in_seconds 120
+    artist
   end
 end
 
