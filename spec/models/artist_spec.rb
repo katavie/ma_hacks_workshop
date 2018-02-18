@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 describe Artist, type: :model do
   subject { FactoryBot.create(:artist) }
