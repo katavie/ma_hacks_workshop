@@ -46,20 +46,23 @@ describe 'POST /api/v1/artists/', type: :request do
     end
   end
 
-  context 'for invalid artist' do
-    it 'throws a not found error' do
+  context 'for artist whose name is already taken' do
+    it 'throws a bad request error' do
       artist = FactoryBot.create(:artist)
 
       params = { artist: { name: artist.name } }
       post api_artists_path, params: params
 
+      parsed_body = JSON.parse(response.body)
+
       expect(response.status).to eq 400
+      expect(parsed_body['error']).
+        to eq "Validation failed: Name has already been taken"
     end
   end
 
   context 'for invalid params' do
     it 'throws an bad request error' do
-
       params = { artist: { nonsense_params: "nonsense_value" } }
       post api_artists_path, params: params
 
@@ -69,8 +72,8 @@ describe 'POST /api/v1/artists/', type: :request do
 end
 
 describe 'PATCH /api/v1/artists/', type: :request do
-  context 'for a valid artist' do
-    it 'creates the artist' do
+  context 'for a valid artist that exists' do
+    it 'updates the artist' do
       artist = FactoryBot.create(:artist)
 
       params = { artist: { name: 'Michael Jackson' } }
@@ -82,7 +85,7 @@ describe 'PATCH /api/v1/artists/', type: :request do
     end
   end
 
-  context 'for invalid artist' do
+  context 'for artist that does not exist' do
     it 'throws a not found error' do
       artist = FactoryBot.create(:artist)
 
@@ -90,6 +93,21 @@ describe 'PATCH /api/v1/artists/', type: :request do
       patch api_artist_path('artist'), params: params
 
       expect(response.status).to eq 404
+    end
+  end
+
+  context 'setting an artist name to nil' do
+    it 'throws a bad request error' do
+      artist = FactoryBot.create(:artist)
+
+      params = { artist: { name: ""} }
+      patch api_artist_path(artist), params: params
+
+      parsed_body = JSON.parse(response.body)
+
+      expect(response.status).to eq 400
+      expect(parsed_body['error']).
+        to eq "Validation failed: Name can't be blank"
     end
   end
 end
