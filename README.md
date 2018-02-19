@@ -30,7 +30,7 @@ with the necessary dependencies to run and test this app:
 
     % ./bin/setup
 
-### Running test 
+### Running test
 
 The test suite can be run like so:
 

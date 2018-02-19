@@ -29,6 +29,8 @@ module Api
       head :no_content
     end
 
+    private
+
     def artist_params
       params.require(:artist).permit(:name, :description)
     end
