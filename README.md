@@ -2,8 +2,9 @@
 
 ## Getting Started
 
-_Note_: You'll need to have the correct version of Ruby installed. It is recommended to [install rbenv](https://github.com/rbenv/rbenv#installation) for managing ruby/gem versions and this
-README will not mention other solutions.
+Follow these instructions to install homebrew(package manager) https://brew.sh/
+
+Install rbenv so that we can install ruby.
 
 ### Installing Ruby
 
@@ -12,6 +13,16 @@ README will not mention other solutions.
 3. `rbenv install $(cat .ruby-version)` (installs this version of ruby)
 4. `rbenv local $(cat .ruby-version)` (selects this version of ruby)
 
+### Installing Postgres
+
+You can either install via home brew with `brew install postgres` or via
+downloading the app from [Postgres](https://postgresapp.com/)
+
+Start postgres
+
+If installed via homebrew `brew services start postgres` or if you installed the
+application, go to applications and select postgres.
+
 ### OSX Scripted Configuration
 
 After you have cloned this repo, run this setup script to set up your machine
@@ -19,23 +30,11 @@ with the necessary dependencies to run and test this app:
 
     % ./bin/setup
 
-It assumes you have a machine equipped with Ruby, Postgres, etc. If not, set up
-your machine with [this script].
-
-[this script]: https://github.com/thoughtbot/laptop
-
-and the test suite can be run like so:
+The test suite can be run like so:
 
     % rspec spec
 
-[heroku local]: https://devcenter.heroku.com/articles/heroku-local
-
-#### Postgresql
-
-This application requires `postgresql` and defaults to `localhost:5432` with no username or password
-
 ## Guidelines
 
-* [Protocol](http://github.com/thoughtbot/guides/blob/master/protocol)
 * [Best Practices](http://github.com/thoughtbot/guides/blob/master/best-practices)
 * [Style](http://github.com/thoughtbot/guides/blob/master/style)
