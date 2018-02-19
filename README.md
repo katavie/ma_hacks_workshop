@@ -2,8 +2,7 @@
 
 ## Getting Started
 
-_Note_: You'll need to have the correct version of Ruby installed
-to run SP. It is recommended to [install rbenv](https://github.com/rbenv/rbenv#installation) for managing ruby/gem versions and this
+_Note_: You'll need to have the correct version of Ruby installed. It is recommended to [install rbenv](https://github.com/rbenv/rbenv#installation) for managing ruby/gem versions and this
 README will not mention other solutions.
 
 ### Installing Ruby
