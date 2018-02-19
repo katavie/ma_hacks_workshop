@@ -23,12 +23,14 @@ Start postgres
 If installed via homebrew `brew services start postgres` or if you installed the
 application, go to applications and select postgres.
 
-### OSX Scripted Configuration
+### Setup Script
 
 After you have cloned this repo, run this setup script to set up your machine
 with the necessary dependencies to run and test this app:
 
     % ./bin/setup
+
+### Running test 
 
 The test suite can be run like so:
 
