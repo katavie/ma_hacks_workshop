@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Artist.find_or_create_by(
+  name: "Beyoncé",
+  description: "Queen B",
+)
+
+Artist.find_or_create_by(
+  name: "Bruno Mars",
+  description: "American singer-songwriter",
+)
